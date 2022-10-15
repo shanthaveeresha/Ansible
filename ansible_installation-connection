@@ -1,0 +1,20 @@
+master & worker: sudo apt update -y && sudo apt upgrade -y
+master & worker: sudo vi /etc/ssh/sshd_config
+Line no:56 --> PasswordAuthentication yes   --> wq!
+master & worker: systemctl restart sshd
+worker: sudo apt install python -y
+master: sudo vi /etc/hosts
+add worker private ip Line no:2 --> 172.31.45.67 worker.example.com worker -->wq!
+master: ping worker
+** ping is not working you need to alter security group **
+
+master: sudo apt install ansible -y
+master: ansible --version
+master: sudo vi /etc/ansible/ansible.cfg
+--> Line no 62 --> host_key_checking = False  -->wq!
+master: sudo vi /etc/ansible/hosts
+--> put private-ip of worker --wq!
+master: vi inventory
+--> worker.example.com ansible_user=ubuntu ansible_ssh_pass=abc@123 -->wq!
+master: ssh-keygen -t rsa
+master: sudo apt install sshpass -y
