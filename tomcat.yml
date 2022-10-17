@@ -1,6 +1,8 @@
 ---
 - hosts: localhost
   become: true
+  roles:
+     - role: nginx
 
   tasks:
   - name: Install Openjdk
