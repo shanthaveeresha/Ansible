@@ -1,0 +1,8 @@
+---
+- hosts: all
+become: true
+tasks:
+  name: install ngingx
+  apt:
+   name: nginx
+   state: installed
