@@ -1,8 +1,8 @@
 ---
-- hosts: all
-become: true
-tasks:
-  name: install ngingx
-  apt:
-   name: nginx
-   state: installed
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Update apt cache and install Nginx
+      apt:
+        name: nginx
+        state: latest
