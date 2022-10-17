@@ -19,6 +19,7 @@ master: vi inventory
 --> worker.example.com ansible_user=ubuntu ansible_ssh_pass=abc@123 -->wq!
 master: ssh-keygen -t rsa
 master: sudo apt install sshpass -y
+master: ssh-copy-id ubuntu@worker-ip
 ############################################################################################
 check the connection with the command:
 master: sudo ansible all -i inventory -m ping
