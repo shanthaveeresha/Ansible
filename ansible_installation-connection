@@ -1,6 +1,7 @@
 master & worker: sudo apt update -y && sudo apt upgrade -y
 master & worker: sudo vi /etc/ssh/sshd_config
 Line no:56 --> PasswordAuthentication yes   --> wq!
+master & worker: sudo passwd ubuntu --> provide passwd as abc@123
 master & worker: systemctl restart sshd
 worker: sudo apt install python -y
 master: sudo vi /etc/hosts
