@@ -1,0 +1,23 @@
+---
+ - hosts: localhost
+   become: yes
+   tasks:
+     - name: Install Openjdk
+       apt:
+        name: openjdk-11-jre-headless
+
+     - name: check java version
+       shell: java -version
+
+     - name: Download tomcat
+       get_url:
+         url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.71/bin/apache-tomcat-9.0.71.tar.gz
+         dest: /
+
+     - name: extract tomcat
+       unarchive:
+         src: /apache-tomcat-9.0.71.tar.gz
+         dest: /
+
+     - name: start tomcat instance
+       shell: nohup /apache-tomcat-9.0.71/bin/startup.sh
