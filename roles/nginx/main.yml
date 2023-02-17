@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: dbservers
   become: true
   tasks:
     - name: Update apt cache and install Nginx
